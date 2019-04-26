@@ -12,7 +12,7 @@ namespace bumblebeeDemoFramework.Tests
         [SetUp]
         public void Setup()
         {
-            Session = new Session<InternetExplorer>();    
+            Session = new Session<Chrome>();    
         }
 
         [TearDown]
