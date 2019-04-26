@@ -56,7 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\DuckDuckGoSearchPage.cs" />
+    <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\SearchTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
