@@ -1,5 +1,6 @@
 using Bumblebee.Setup;
 using Bumblebee.Setup.DriverEnvironments;
+using bumblebeeDemoFramework.Pages;
 using NUnit.Framework;
 
 namespace bumblebeeDemoFramework.Tests
@@ -12,7 +13,8 @@ namespace bumblebeeDemoFramework.Tests
         [SetUp]
         public void Setup()
         {
-            Session = new Session<Chrome>();    
+            Session = new Session<Chrome>();
+            Session.NavigateTo<DuckDuckGoSearchPage>("https://duckduckgo.com/");
         }
 
         [TearDown]

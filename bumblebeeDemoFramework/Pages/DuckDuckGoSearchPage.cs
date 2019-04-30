@@ -1,5 +1,6 @@
 using System;
 using Bumblebee.Implementation;
+using Bumblebee.Interfaces;
 using Bumblebee.Setup;
 
 namespace bumblebeeDemoFramework.Pages
@@ -8,10 +9,30 @@ namespace bumblebeeDemoFramework.Pages
     {
         public DuckDuckGoSearchPage(Session session) : base(session)
         {
+            
         }
 
-        public DuckDuckGoSearchPage(Session session, TimeSpan timeout) : base(session, timeout)
+        public SearchBlock SearchBlock
         {
+            get { return new SearchBlock(this); }
+        }
+    }
+
+    public class SearchBlock : Block
+    {
+        public SearchBlock(IBlock parent) : base(parent, By.Id("content_homepage"))
+        {
+
+        }
+
+        public ITextField<SearchBlock> SearchField
+        {
+            get { return new TextField<SearchBlock>(this, By.Id("search_form_input_homepage")); }
+        }
+
+        public IClickable<SearchBlock> SearchButton
+        {
+            get { return new Clickable<SearchBlock>(this, By.Id("search_button_homepage")); }
         }
     }
 }

@@ -11,9 +11,11 @@ namespace bumblebeeDemoFramework.Tests
         [Test]
         public void Search()
         {
-            Session
-                .NavigateTo<DuckDuckGoSearchPage>("https://duckduckgo.com/")
-                .VerifyPresence(By.Id("search_form_input_homepage"));
+            Session.CurrentPage<DuckDuckGoSearchPage>()
+                .VerifyPresence(By.Id("search_form_input_homepage"))
+                .SearchBlock
+                .SearchField.EnterText("QA")
+                .SearchButton.Click();
         }
     }
 }
